@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="UngdungHRM.DialogHostControl.MessageBoxShow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UngdungHRM.DialogHostControl"
+             mc:Ignorable="d" 
+             Padding="20"
+             d:DesignHeight="100" d:DesignWidth="100">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="txtTitle" Text="Title" FontWeight="Bold"/>
+
+        <TextBlock x:Name="txtContent" Margin="0 2 0 0" Grid.Row="1" Text="Content"/>
+
+        <StackPanel HorizontalAlignment="Right" Margin="0 2 0 0" Grid.Row="2" Orientation="Horizontal">
+            <Button Click="Button_Click_1" Style="{StaticResource MaterialDesignFlatButton}">
+                YES
+            </Button>
+
+            <Button Click="Button_Click" Style="{StaticResource MaterialDesignFlatButton}">
+                NO
+            </Button>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

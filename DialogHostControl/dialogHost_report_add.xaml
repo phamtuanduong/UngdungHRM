@@ -1,0 +1,238 @@
+﻿<UserControl x:Class="UngdungHRM.DialogHostControl.dialogHost_report_add"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UngdungHRM.DialogHostControl"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="10" Padding="10" Background="#F7F6F6"
+                            Grid.RowSpan="2">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="1" Direction="270" Color="{StaticResource MaterialDesignShadow}" Opacity=".42" RenderingBias="Performance"/>
+            </Border.Effect>
+        </Border>
+
+        <Border Background="#EFEFEF"
+                            CornerRadius="10 10 0 0">
+            <TextBlock x:Name="txtNameControl" Text="THÊM BÁO CÁO MỚI"
+                                   Foreground="#B2000000" FontWeight="Bold"
+                                   Margin="10 0 0 0"
+                                   VerticalAlignment="Center"/>
+        </Border>
+
+        <Grid Margin="15 0 15 0" x:Name="controlAdd" Grid.Row="2"
+              >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Tên báo cáo *"
+                           VerticalAlignment="Center"
+                           Margin="0 5 0 0"
+                           FontSize="14"/>
+                <TextBlock Text="Chọn tiêu chí"
+                           Grid.Row="1"
+                           Margin="0 15 0 0"
+                           FontSize="14"/>
+
+                <TextBlock Text="Tiêu chí đã chọn"
+                           Grid.Row="2"
+                           Margin="0 15 0 0"
+                           FontSize="14"/>
+
+                <TextBlock Text="Trường hiển thị"
+                           Grid.Row="3"
+                           Margin="0 15 0 0"
+                           FontSize="14"/>
+
+                <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="1"
+                         Background="White"
+                         Margin="20 5 0 0"
+                         Width="220"
+                         Name="txtTen"
+                         HorizontalAlignment="Left">
+
+                </TextBox>
+
+                <ComboBox Grid.Row="1" Grid.Column="1"
+                          ItemsSource="{Binding}"
+                          x:Name="cbTieuChi"
+                          Margin="20 10 60 0"
+                          DisplayMemberPath="String"
+                          Background="White"
+                          BorderThickness="1"
+                          Style="{StaticResource MaterialDesignFilledComboBox}">
+                    
+                </ComboBox>
+
+                <Button Grid.Row="1" Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Click="btnThemTieuChi_Click"
+                        Style="{StaticResource MaterialDesignIconForegroundButton}">
+                    <materialDesign:PackIcon Kind="Plus" />
+                </Button>
+
+                <ListBox ItemsSource="{Binding}"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         MinHeight="100"
+                         Margin="0 15 0 0"
+                         x:Name="lsbTieuChi"
+                         MaxHeight="150">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" 
+                                        Tag="{Binding Tag}">
+                                <TextBlock Text="X"
+                                           Tag="{Binding ID}"
+                                           Foreground="Red"
+                                           VerticalAlignment="Center"
+                                           FontSize="15"
+                                           Cursor="Hand"
+                                           MouseLeftButtonDown="TextBlock_MouseLeftButtonDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <TextBlock Text="{Binding Name}"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center">
+
+                                </TextBlock>
+
+                                <ComboBox ItemsSource="{Binding List}"
+                                          Margin="10 0 0 0"
+                                          MinWidth="100"
+                                          Tag="{Binding ID}"
+                                          Text="{Binding Str}"
+                                          SelectedValue="{Binding Str}"
+                                          SelectionChanged="ComboBox_SelectionChanged">
+                                    
+                                </ComboBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <ComboBox Grid.Row="3" Grid.Column="1"
+                          ItemsSource="{Binding}"
+                          x:Name="cbTruong"
+                          Margin="20 10 60 0"
+                          DisplayMemberPath="String"
+                          Background="White"
+                          BorderThickness="1"
+                          Style="{StaticResource MaterialDesignFilledComboBox}">
+
+                </ComboBox>
+
+                <Button Grid.Row="3" Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Click="btnThemTruong_Click"
+                        Style="{StaticResource MaterialDesignIconForegroundButton}">
+                    <materialDesign:PackIcon Kind="Plus" />
+                </Button>
+
+                <ListBox ItemsSource="{Binding}"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         MinHeight="100"
+                         Margin="0 15 0 0"
+                         x:Name="lsbTruong"
+                         MaxHeight="150">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" 
+                                        Tag="{Binding Tag}">
+                                <TextBlock Text="{Binding Delete}"
+                                           Tag="{Binding ID}"
+                                           Foreground="Red"
+                                           VerticalAlignment="Center"
+                                           FontSize="15"
+                                           Cursor="Hand"
+                                           MouseLeftButtonDown="TextBlock1_MouseLeftButtonDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <TextBlock Text="{Binding Name}"
+                                           Margin="10 0 0 0"
+                                           VerticalAlignment="Center">
+
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+
+            </Grid>
+
+            <Separator Height="1" Style="{StaticResource MaterialDesignDarkSeparator}" Margin="0 5" Grid.Row="1" VerticalAlignment="Top"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1"
+                        Margin="0 10 0 10"
+                        HorizontalAlignment="Left">
+                <Button x:Name="btnSave" Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                    Background="#FF086912"
+                    Foreground="White"
+                    Margin="0 0 10 0"
+                    Width="120"
+                        Click="Button_Click"
+                    BorderBrush="Transparent"
+                    materialDesign:ButtonAssist.CornerRadius="15">
+                    LƯU LẠI
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                    Background="#FF4D4D4D"
+                    Foreground="White"
+                    Margin="0 0 10 0"
+                    Width="120"
+                    BorderBrush="Transparent"
+                    materialDesign:ButtonAssist.CornerRadius="15"
+                        Click="btnHuy_Click">
+                    HỦY BỎ
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

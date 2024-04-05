@@ -1,0 +1,126 @@
+﻿<UserControl x:Name="userControl" x:Class="UngdungHRM.ControlsItem.employee_edit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UngdungHRM.ControlsItem"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:convert="clr-namespace:UngdungHRM.Converters">
+    <UserControl.Resources>
+        <convert:StringToUpper x:Key="StringToUpper"/>
+        <Storyboard x:Key="Close">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <materialDesign:TransitioningContent>
+        <materialDesign:TransitioningContent.OpeningEffects>
+            <materialDesign:TransitionEffect Kind="FadeIn" />
+            <materialDesign:TransitionEffect Kind="SlideInFromRight" />
+        </materialDesign:TransitioningContent.OpeningEffects>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border CornerRadius="10" Padding="10" Background="White"
+                            Grid.RowSpan="2">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="1" Direction="270" Color="{StaticResource MaterialDesignShadow}" Opacity=".42" RenderingBias="Performance"/>
+                </Border.Effect>
+            </Border>
+
+            <Border Background="#EFEFEF"
+                            CornerRadius="10 10 0 0">
+                <Grid>
+                    <TextBlock Text="THÔNG TIN NHÂN VIÊN"
+                                   Foreground="#B2000000" FontWeight="Bold"
+                                   Margin="50 0 0 0"
+                                   VerticalAlignment="Center"/>
+
+                    <materialDesign:PopupBox HorizontalAlignment="Right" 
+                                             Margin="0 0 10 0" Foreground="#FFB2B2B2"
+                                             >
+                        
+                    </materialDesign:PopupBox>
+                </Grid>
+            </Border>
+
+            <Button Style="{StaticResource MaterialDesignIconButton}"
+                    HorizontalAlignment="Left"
+                    Click="btnExit_Click">
+                <materialDesign:PackIcon Kind="ArrowLeft" />
+            </Button>
+            <Grid Grid.Row="1" Margin="10">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+
+
+                    <Border CornerRadius="10 10 3 3" Padding="10" Background="#ECECEC"
+                            Height="40">
+
+                        <TextBlock x:Name="txtName" Text="{Binding FullName, Converter={StaticResource StringToUpper}, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF5DCB44"/>
+
+                    </Border>
+
+
+                    <Button Width="200" Height="200"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            Background="Transparent"
+                            Cursor="Arrow"
+                            MouseDoubleClick="Button_MouseDoubleClick"
+                            Padding="0">
+                        <Image x:Name="imgAvt" Source="/UngdungHRM;component/icon/44.png" Stretch="UniformToFill"
+                               />
+                    </Button>
+
+                    <Border Margin="0 10 0 0" CornerRadius="10" Padding="10" Background="#B2CFA3D6"
+                            Grid.Row="1">
+                        <ListBox
+                           Foreground="#FFD429C5"
+                            SelectionChanged="ListBox_SelectionChanged">
+                            <ListBoxItem>
+                                Thông tin cá nhân
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                Chi tiết liên hệ
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                Liên hệ khẩn cấp
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                Việc làm
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                Tiền lương
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                Bằng cấp
+                            </ListBoxItem>
+                        </ListBox>
+                    </Border>
+                </StackPanel>
+
+                <Frame x:Name="frameControl" Margin="10 0 0 0" Grid.Column="1"/>
+
+            </Grid>
+            
+            
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

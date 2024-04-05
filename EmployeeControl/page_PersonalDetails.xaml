@@ -1,0 +1,419 @@
+﻿<Page x:Class="UngdungHRM.EmployeeControl.page_PersonalDetails"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UngdungHRM.EmployeeControl"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="page_PersonalDetails"
+      xmlns:convert="clr-namespace:UngdungHRM.Converters">
+
+    <Page.Resources>
+        <convert:BoolToOppositeBoolConverter x:Key="BoolToOppositeBoolConverter"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <CheckBox x:Name="checkEdit"/>
+
+
+        <Border CornerRadius="10" Padding="10" Background="#F7F6F6"
+                            Grid.RowSpan="2">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="1" Direction="270" Color="{StaticResource MaterialDesignShadow}" Opacity=".42" RenderingBias="Performance"/>
+            </Border.Effect>
+        </Border>
+
+        <Border Background="#EFEFEF"
+                            CornerRadius="10 10 0 0">
+            <TextBlock x:Name="txtNameControl" Text="Thông tin cá nhân"
+                                   Foreground="#B2000000" FontWeight="Bold"
+                                   Margin="10 0 0 0"
+                                   VerticalAlignment="Center" FontFamily="Yu Gothic Light" FontSize="16"/>
+        </Border>
+
+        <Grid Margin="15 0 15 0" Grid.Row="2"
+              >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                          CanContentScroll="True"
+                          Style="{StaticResource for_scrollviewer}"
+                          VerticalScrollBarVisibility="Visible">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Họ *"
+                           Grid.Column="1" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0 5 0 0"
+                           
+                           FontSize="14"/>
+                    <TextBlock Text="Tên đệm"
+                           Grid.Column="2"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0 5 0 0"
+                           
+                           FontSize="14"/>
+                    <TextBlock Text="Tên *"
+                           Grid.Column="3"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0 5 0 0"
+                           
+                           FontSize="14"/>
+                    <TextBlock Text="Họ và tên"
+                           Grid.Row="1"
+                           VerticalAlignment="Center"
+                           Margin="0 5 0 0"
+                           
+                           FontSize="14"/>
+                    <TextBlock Text="Mã công nhân" Grid.Row="2"
+                           Margin="0 15 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="14"/>
+
+                    <TextBlock Text="Số giấy phép lái xe" Grid.Row="3"
+                           Margin="0 15 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="14"/>
+
+                    <TextBlock Text="Số SSN" Grid.Row="4"
+                           Margin="0 15 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="14"/>
+
+                    <TextBlock Text="Giới tính" Grid.Row="5"
+                           Margin="0 15 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="14"/>
+
+                    <TextBlock Text="Quốc tịch" Grid.Row="6"
+                           Margin="0 15 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="14"/>
+
+                    <TextBlock Text="Biệt danh" Grid.Row="7"
+                           Margin="0 15 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="14"/>
+                    
+
+                    <TextBlock Text="Số nghĩa vụ quân sự" Grid.Row="8"
+                           Margin="0 15 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="14"/>
+
+                    <TextBlock Text="Mã NV khác" 
+                               Grid.Row="2"
+                               Grid.Column="2"
+                               Margin="0 15 0 0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14"/>
+
+                    <TextBlock Text="Ngày hết hạn giấy phép" 
+                               Grid.Row="3"
+                               Grid.Column="2"
+                               Margin="0 15 0 0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14"/>
+
+                    <TextBlock Text="Số SIN" 
+                               Grid.Row="4"
+                               Grid.Column="2"
+                               Margin="0 15 0 0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14"/>
+                    <TextBlock Text="Tình trạng hôn nhân" 
+                               Grid.Row="5"
+                               Grid.Column="2"
+                               Margin="0 15 0 0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14"/>
+
+                    <TextBlock Text="Ngày sinh" 
+                               Grid.Row="6"
+                               Grid.Column="2"
+                               Margin="0 15 0 0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14"/>
+
+                    <TextBlock Text="Người hút thuốc" 
+                               Grid.Row="7"
+                               Grid.Column="2"
+                               Margin="0 15 0 0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14"/>
+
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         Background="White"
+                         Margin="5"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}"
+                         Padding="0"
+                         Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
+                         Name="txtHo">
+
+                    </TextBox>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="2"
+                         Grid.Row="1"
+                         Background="White"
+                         Margin="5"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}"
+                         Text="{Binding MiddleName, UpdateSourceTrigger=PropertyChanged}"
+                         Name="txtTenDiem">
+
+                    </TextBox>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="3"
+                         Grid.Row="1"
+                         Background="White"
+                         Margin="5"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}"
+                         Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
+                         Name="txtTen">
+
+                    </TextBox>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="1"
+                         Grid.Row="2"
+                         Background="White"
+                         Margin="5 15 5 5"
+                         Text="{Binding EmployeeId, UpdateSourceTrigger=PropertyChanged}"
+                         Name="txtMaNV"
+                             IsEnabled="{Binding IsChecked, ElementName=checkEdit}">
+
+                    </TextBox>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="1"
+                         Grid.Row="3"
+                         Background="White"
+                         Margin="5 15 5 5"
+                         Text="{Binding dri_lice_num, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}">
+
+                    </TextBox>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="1"
+                         Grid.Row="4"
+                         Background="White"
+                         Margin="5 15 5 5"
+                         Text="{Binding ssn_num, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}">
+
+                    </TextBox>
+
+                    <StackPanel  Orientation="Horizontal"
+                                 IsEnabled="{Binding IsChecked, ElementName=checkEdit}"
+                         Grid.Column="1"
+                         Grid.Row="5"
+                         Margin="5 15 5 5">
+                        <RadioButton
+                            IsChecked="{Binding Gender}">
+                            Nam
+                        </RadioButton>
+
+                        <RadioButton Margin="20 0 0 0"
+                                     IsChecked="{Binding Gender, Converter={StaticResource BoolToOppositeBoolConverter}}">
+                            Nữ
+                        </RadioButton>
+
+                    </StackPanel>
+
+                    <ComboBox
+                        IsEnabled="{Binding IsChecked, ElementName=checkEdit}"
+                         Grid.Column="1"
+                         Grid.Row="6"
+                         Background="White"
+                         Style="{StaticResource MaterialDesignFilledComboBox}"
+                         BorderThickness="1"
+                         Margin="3 0 3 5"
+                         DisplayMemberPath="Name"
+                            Name="cbCountry"
+                         Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}"
+                         >
+                    </ComboBox>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="1"
+                         Grid.Row="7"
+                         Background="White"
+                         Margin="5 15 5 5"
+                         Text="{Binding NickName, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}">
+
+                    </TextBox>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="1"
+                         Grid.Row="8"
+                         Background="White"
+                         Margin="5 15 5 5"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}">
+
+                    </TextBox>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="4"
+                         Grid.Row="2"
+                         Background="White"
+                         Margin="5 15 5 5"
+                         Text="{Binding OtherId, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}">
+
+                    </TextBox>
+
+                    <DatePicker
+                         Grid.Column="4"
+                         Grid.Row="3"
+                         Height="40"
+                         Margin="5 15 5 5"
+                         BorderThickness="1"
+                         Padding="5 0 5 0"
+                         SelectedDate="{Binding Dri_lice_exp_date, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}"
+                         Background="White">
+                    </DatePicker>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         Grid.Column="4"
+                         Grid.Row="4"
+                         Background="White"
+                         Margin="5 15 5 5"
+                         Text="{Binding sin_num, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="{Binding IsChecked, ElementName=checkEdit}">
+
+                    </TextBox>
+
+                    <ComboBox
+                        IsEnabled="{Binding IsChecked, ElementName=checkEdit}"
+                         Grid.Column="3"
+                         Grid.Row="5"
+                         Background="White"
+                         Style="{StaticResource MaterialDesignFilledComboBox}"
+                         BorderThickness="1"
+                         Margin="3 15 3 5"
+                         Text="{Binding MaritalStatus, UpdateSourceTrigger=PropertyChanged}"
+                         >
+                        <ComboBoxItem>
+                            Độc thân
+                        </ComboBoxItem>
+
+                        <ComboBoxItem>
+                            Có gia đình
+                        </ComboBoxItem>
+                    </ComboBox>
+
+                    <DatePicker
+                        IsEnabled="{Binding IsChecked, ElementName=checkEdit}"
+                         Grid.Column="4"
+                         Grid.Row="6"
+                         Height="40"
+                         Margin="5 15 5 5"
+                         BorderThickness="1"
+                         SelectedDate="{Binding Birth, UpdateSourceTrigger=PropertyChanged}"
+                         Text="{Binding Birth}"
+                         Padding="5 0 5 0"
+                         Background="White">
+                    </DatePicker>
+
+                    <CheckBox x:Name="checkHutThuoc" Grid.Column="4"
+                         Grid.Row="7"
+                              IsEnabled="{Binding IsChecked, ElementName=checkEdit}"
+                              Margin="5 15 5 5"/>
+
+
+                    <Separator Height="1" Style="{StaticResource MaterialDesignDarkSeparator}" 
+                           Margin="5 7 5 5"
+                           Grid.Row="2"
+                           Grid.ColumnSpan="4"
+                           VerticalAlignment="Top"/>
+
+                    <Separator Height="1" Style="{StaticResource MaterialDesignDarkSeparator}" 
+                           Margin="5 7 5 5"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="4"
+                           VerticalAlignment="Top"/>
+
+                    <Separator Height="1" Style="{StaticResource MaterialDesignDarkSeparator}" 
+                           Margin="5 7 5 5"
+                           Grid.Row="7"
+                           Grid.ColumnSpan="4"
+                           VerticalAlignment="Top"/>
+
+                </Grid>
+            </ScrollViewer>
+
+            <Separator Height="1" Style="{StaticResource MaterialDesignDarkSeparator}" Margin="0 5" Grid.Row="1" VerticalAlignment="Top"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1"
+                        Margin="0 10 0 10"
+                        HorizontalAlignment="Center">
+                <Button x:Name="btnSave" Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                    Background="#FF086912"
+                    Foreground="White"
+                    Margin="0 0 10 0"
+                    Width="120"
+                        Click="btnSave_Click"
+                    BorderBrush="Transparent"
+                    materialDesign:ButtonAssist.CornerRadius="15">
+                    SỬA ĐỔI
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                    Background="#FF4D4D4D"
+                    Foreground="White"
+                    Margin="0 0 10 0"
+                    Width="120"
+                        Click="btnHuy_Click"
+                    BorderBrush="Transparent"
+                    materialDesign:ButtonAssist.CornerRadius="15"
+                        Visibility="{Binding IsChecked, ElementName=checkEdit, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    HỦY BỎ
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

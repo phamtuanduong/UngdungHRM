@@ -1,0 +1,778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C59C211B-1E8A-49FF-88BB-640AA6783D9C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UngdungHRM</RootNamespace>
+    <AssemblyName>UngdungHRM</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.2.7.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.7\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BaseViewModel.cs" />
+    <Compile Include="Controller\Employeee_QualificationCTL.cs" />
+    <Compile Include="Controller\EmployeeInfoCTL.cs" />
+    <Compile Include="Controller\ReportCTL.cs" />
+    <Compile Include="Controller\ReportTableFieldCTL.cs" />
+    <Compile Include="Controller\ReportToPDFCTL.cs" />
+    <Compile Include="ControlsItem\report_run.xaml.cs">
+      <DependentUpon>report_run.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BoolToOppositeBoolConverter.cs" />
+    <Compile Include="Controller\AccountCTL.cs" />
+    <Compile Include="Controller\CurrencyCTL.cs" />
+    <Compile Include="Controller\EducationCTL.cs" />
+    <Compile Include="Controller\EmployeeCTL.cs" />
+    <Compile Include="Controller\EmploymentStatusCTL.cs" />
+    <Compile Include="Controller\JobCategoriesCTL.cs" />
+    <Compile Include="Controller\Jobs_TitlesCTL.cs" />
+    <Compile Include="Controller\LanguagesCTL.cs" />
+    <Compile Include="Controller\LicensesCTL.cs" />
+    <Compile Include="Controller\LocationCTL.cs" />
+    <Compile Include="Controller\NationalityCTL.cs" />
+    <Compile Include="Controller\OrganizationInfoCTL.cs" />
+    <Compile Include="Controller\PayGradeCTL.cs" />
+    <Compile Include="Controller\PayGrade_CurrencyCTL.cs" />
+    <Compile Include="Controller\SkillCTL.cs" />
+    <Compile Include="ControlsItem\qualifications_education.xaml.cs">
+      <DependentUpon>qualifications_education.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\qualifications_languages.xaml.cs">
+      <DependentUpon>qualifications_languages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\qualifications_licenses.xaml.cs">
+      <DependentUpon>qualifications_licenses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\qualifications_skill.xaml.cs">
+      <DependentUpon>qualifications_skill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\FormatTextConverter.cs" />
+    <Compile Include="Converters\InvertedBoolToVis.cs" />
+    <Compile Include="Converters\StringToUpper.cs" />
+    <Compile Include="Data\Education.cs" />
+    <Compile Include="Data\EmployeeContactDetails.cs" />
+    <Compile Include="Data\EmployeeEmergencyContacts.cs" />
+    <Compile Include="Data\EmployeeReport.cs" />
+    <Compile Include="Data\ReportCondition.cs" />
+    <Compile Include="Data\Employeee_QEducation.cs" />
+    <Compile Include="Data\Employeee_QLanguages.cs" />
+    <Compile Include="Data\Employeee_QLicense.cs" />
+    <Compile Include="Data\Employeee_QSkills.cs" />
+    <Compile Include="Data\Employeee_QWorkExperience.cs" />
+    <Compile Include="Data\EmployeeJobs.cs" />
+    <Compile Include="Data\EmployeeJobsTerminate.cs" />
+    <Compile Include="Data\EmployeeSalaryComponent.cs" />
+    <Compile Include="Data\Item.cs" />
+    <Compile Include="Data\ItemEmployee.cs" />
+    <Compile Include="Data\Languages.cs" />
+    <Compile Include="Data\Licenses.cs" />
+    <Compile Include="Data\Report.cs" />
+    <Compile Include="Data\ReportConditionCriteria.cs" />
+    <Compile Include="Data\ReportField.cs" />
+    <Compile Include="Data\ReportTable.cs" />
+    <Compile Include="Data\Skill.cs" />
+    <Compile Include="Data\Structure.cs" />
+    <Compile Include="Controller\StructureCTL.cs" />
+    <Compile Include="Controller\UserAcountCTL.cs" />
+    <Compile Include="Controller\WorkShiftCTL.cs" />
+    <Compile Include="ControlsItem\employee_edit.xaml.cs">
+      <DependentUpon>employee_edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\employee_list.xaml.cs">
+      <DependentUpon>employee_list.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\jobs_Employment_Status.xaml.cs">
+      <DependentUpon>jobs_Employment_Status.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\jobs_Job_Categories.xaml.cs">
+      <DependentUpon>jobs_Job_Categories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\jobs_PayGrades.xaml.cs">
+      <DependentUpon>jobs_PayGrades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\jobs_Work_Shift.xaml.cs">
+      <DependentUpon>jobs_Work_Shift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\nationalities.xaml.cs">
+      <DependentUpon>nationalities.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\organization_General_Information.xaml.cs">
+      <DependentUpon>organization_General_Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\organization_location.xaml.cs">
+      <DependentUpon>organization_location.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\organization_structure.xaml.cs">
+      <DependentUpon>organization_structure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\userAccount.xaml.cs">
+      <DependentUpon>userAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataCurrency.cs" />
+    <Compile Include="Data\Employee.cs" />
+    <Compile Include="Data\EmploymentStatus.cs" />
+    <Compile Include="Data\JobCategories.cs" />
+    <Compile Include="Data\Jobs_Titles.cs" />
+    <Compile Include="Data\Location.cs" />
+    <Compile Include="Data\Nationality.cs" />
+    <Compile Include="Data\OrganizationInfo.cs" />
+    <Compile Include="Data\PayGrade.cs" />
+    <Compile Include="Data\PayGrade_Currency.cs" />
+    <Compile Include="Data\UserAccount.cs" />
+    <Compile Include="Data\WorkShift.cs" />
+    <Compile Include="DialogHostControlQ\dialogHostReport.xaml.cs">
+      <DependentUpon>dialogHostReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControlQ\dialogHostReport_Wait.xaml.cs">
+      <DependentUpon>dialogHostReport_Wait.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControlQ\dialogHost_e_QEducation.xaml.cs">
+      <DependentUpon>dialogHost_e_QEducation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControlQ\dialogHost_e_QLanguages.xaml.cs">
+      <DependentUpon>dialogHost_e_QLanguages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControlQ\dialogHost_e_QLicense.xaml.cs">
+      <DependentUpon>dialogHost_e_QLicense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControlQ\dialogHost_e_QSkills.xaml.cs">
+      <DependentUpon>dialogHost_e_QSkills.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControlQ\dialogHost_e_QWorkExperience.xaml.cs">
+      <DependentUpon>dialogHost_e_QWorkExperience.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_employeeAdd.xaml.cs">
+      <DependentUpon>dialogHost_employeeAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_employee_report.xaml.cs">
+      <DependentUpon>dialogHost_employee_report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_e_job.xaml.cs">
+      <DependentUpon>dialogHost_e_job.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_jobs_Job_Categories.xaml.cs">
+      <DependentUpon>dialogHost_jobs_Job_Categories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_jobs_title.xaml.cs">
+      <DependentUpon>dialogHost_jobs_title.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsItem\tknguoidung_control.xaml.cs">
+      <DependentUpon>tknguoidung_control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Account.cs" />
+    <Compile Include="DialogHostControl\dialogHost_jobs_Work_Shift.xaml.cs">
+      <DependentUpon>dialogHost_jobs_Work_Shift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_job_Employment_Status.xaml.cs">
+      <DependentUpon>dialogHost_job_Employment_Status.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_lienhekhancap.xaml.cs">
+      <DependentUpon>dialogHost_lienhekhancap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_Location.xaml.cs">
+      <DependentUpon>dialogHost_Location.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_nationalities.xaml.cs">
+      <DependentUpon>dialogHost_nationalities.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_payGrade.xaml.cs">
+      <DependentUpon>dialogHost_payGrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_q_educations.xaml.cs">
+      <DependentUpon>dialogHost_q_educations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_q_languages.xaml.cs">
+      <DependentUpon>dialogHost_q_languages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_q_licenses.xaml.cs">
+      <DependentUpon>dialogHost_q_licenses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_q_skills.xaml.cs">
+      <DependentUpon>dialogHost_q_skills.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_report_add.xaml.cs">
+      <DependentUpon>dialogHost_report_add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_structure.xaml.cs">
+      <DependentUpon>dialogHost_structure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_tienluong.xaml.cs">
+      <DependentUpon>dialogHost_tienluong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\dialogHost_userAccount.xaml.cs">
+      <DependentUpon>dialogHost_userAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeControl\page_ContactDetails.xaml.cs">
+      <DependentUpon>page_ContactDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeControl\page_EmergencyContacts.xaml.cs">
+      <DependentUpon>page_EmergencyContacts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeControl\page_Jobs.xaml.cs">
+      <DependentUpon>page_Jobs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeControl\page_PersonalDetails.xaml.cs">
+      <DependentUpon>page_PersonalDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeControl\page_SalaryComponents.xaml.cs">
+      <DependentUpon>page_SalaryComponents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeControl\page_WorkExperience.xaml.cs">
+      <DependentUpon>page_WorkExperience.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EventClick.cs" />
+    <Compile Include="FilterControl\filter_NhanVien.xaml.cs">
+      <DependentUpon>filter_NhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FilterControl\filter_UserAccount.xaml.cs">
+      <DependentUpon>filter_UserAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fLogin.xaml.cs">
+      <DependentUpon>fLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\bangcap_item.xaml.cs">
+      <DependentUpon>bangcap_item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\employee_report.xaml.cs">
+      <DependentUpon>employee_report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\quanlinhanvien_controlItem.xaml.cs">
+      <DependentUpon>quanlinhanvien_controlItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\quantrivieclam_item.xaml.cs">
+      <DependentUpon>quantrivieclam_item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\thongtincoquan_item.xaml.cs">
+      <DependentUpon>thongtincoquan_item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\userControlPageHome.xaml.cs">
+      <DependentUpon>userControlPageHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SqlProvider.cs" />
+    <Compile Include="StaticControl.cs" />
+    <Page Include="Clone.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\employee_edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\employee_list.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\jobs_Employment_Status.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\jobs_Job_Categories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\jobs_PayGrades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\jobs_Work_Shift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\nationalities.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\organization_General_Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\organization_location.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\organization_structure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\qualifications_education.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\qualifications_languages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\qualifications_licenses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\qualifications_skill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\report_run.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\userAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\quantrivien_controlMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControlQ\dialogHostReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControlQ\dialogHostReport_Wait.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControlQ\dialogHost_e_QEducation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControlQ\dialogHost_e_QLanguages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControlQ\dialogHost_e_QLicense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControlQ\dialogHost_e_QSkills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControlQ\dialogHost_e_QWorkExperience.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_employeeAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_employee_report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_e_job.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_jobs_Job_Categories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_jobs_title.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlsItem\tknguoidung_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\vitrilamviec_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_jobs_Work_Shift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_job_Employment_Status.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_lienhekhancap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_Location.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_nationalities.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_payGrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_q_educations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_q_languages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_q_licenses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_q_skills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_report_add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_structure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_tienluong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\dialogHost_userAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogHostControl\MessageBoxShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeControl\page_ContactDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeControl\page_EmergencyContacts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeControl\page_Jobs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeControl\page_PersonalDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeControl\page_SalaryComponents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeControl\page_WorkExperience.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FilterControl\filter_NhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FilterControl\filter_UserAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clone.xaml.cs">
+      <DependentUpon>Clone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChangButtonHome.cs" />
+    <Compile Include="Controls\quantrivien_controlMenu.xaml.cs">
+      <DependentUpon>quantrivien_controlMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\vitrilamviec_control.xaml.cs">
+      <DependentUpon>vitrilamviec_control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogHostControl\MessageBoxShow.xaml.cs">
+      <DependentUpon>MessageBoxShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fMain.xaml.cs">
+      <DependentUpon>fMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ControlsItem\jobs_titles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewControls\bangcap_item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewControls\employee_report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewControls\quanlinhanvien_controlItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewControls\quantrivieclam_item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewControls\quantrivien_controlItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewControls\thongtincoquan_item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewControls\userControlPageHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\PasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\RadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ScrollViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ControlsItem\jobs_titles.xaml.cs">
+      <DependentUpon>jobs_titles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewControls\quantrivien_controlItem.xaml.cs">
+      <DependentUpon>quantrivien_controlItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="MauSYLL\SoYeuLiLich.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\ApplyLeave %281%29.png" />
+    <Resource Include="icon\icons8_task_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8_unhcr_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8_organization_chart_people_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8_guarantee_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8-globe-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8-edit-user-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8-open-opportunity-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8-unit-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8-organization-chart-people-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8-contract-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\ApplyLeave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\MyTimesheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\MyLeave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\29341.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\back.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8_flag_filled_60px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8_organization_chart_people_60px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8_management_60px_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\icons8_test_results_60px_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\calendar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>

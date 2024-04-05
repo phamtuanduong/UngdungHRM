@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="UngdungHRM.FilterControl.filter_UserAccount"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UngdungHRM.FilterControl"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" Width="193">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListBox Style="{StaticResource MaterialDesignFilterChipAccentOutlineListBox}" Foreground="#DDFF0000"
+                 Margin="0 0 0 5"
+                 HorizontalAlignment="Left">
+            <ListBoxItem IsSelected="True">
+                Theo tên người dùng
+            </ListBoxItem>
+
+            <ListBoxItem>
+                Theo tên nhân viên
+            </ListBoxItem>
+        </ListBox>
+
+
+        <TextBlock Text="Theo vai trò"
+                   Grid.Row="1" 
+                   Margin="5 0 0 0" FontFamily="Yu Gothic"/>
+        <ListBox Style="{StaticResource MaterialDesignChoiceChipAccentListBox}"
+                 Grid.Row="1" 
+                 Margin="0 20 0 0"
+                 >
+            <ListBoxItem IsSelected="True">
+                Tất cả
+            </ListBoxItem>
+            <ListBoxItem>
+                ESS
+            </ListBoxItem>
+            <ListBoxItem>
+                Admin
+            </ListBoxItem>
+        </ListBox>
+
+        <TextBlock Text="Theo trạng thái"
+                   Grid.Row="2" 
+                   Margin="5 0 0 0" FontFamily="Yu Gothic"/>
+        <ListBox Style="{StaticResource MaterialDesignChoiceChipAccentListBox}"
+                 Grid.Row="2"
+                 Margin="0 20 0 0">
+
+            <ListBoxItem IsSelected="True">
+                Tất cả
+            </ListBoxItem>
+            <ListBoxItem>
+                Đã bật
+            </ListBoxItem>
+            <ListBoxItem>
+                Đã tắt
+            </ListBoxItem>
+        </ListBox>
+
+        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                 Grid.Row="4"
+                 Margin="5 10 15 0"
+                 materialDesign:HintAssist.Hint="Tìm kiếm"
+                 Background="White" >
+
+        </TextBox>
+    </Grid>
+</UserControl>

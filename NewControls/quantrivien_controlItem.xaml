@@ -1,0 +1,270 @@
+﻿<UserControl x:Class="UngdungHRM.NewControls.quantrivien_controlItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UngdungHRM.NewControls"
+             mc:Ignorable="d" 
+             xmlns:l="clr-namespace:UngdungHRM"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Storyboard x:Key="ShowMessage">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Mess">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame x:Name="easingDoubleKeyFrame" KeyTime="0:0:0.1" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+
+    <materialDesign:TransitioningContent>
+        <materialDesign:TransitioningContent.OpeningEffects>
+            <materialDesign:TransitionEffect Kind="FadeIn" />
+            <materialDesign:TransitionEffect Kind="SlideInFromRight" />
+        </materialDesign:TransitioningContent.OpeningEffects>
+        <Border Padding="20 10 20 10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border CornerRadius="10" Padding="10" Background="#EFEFEF"
+                            >
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="1" Direction="270" Color="{StaticResource MaterialDesignShadow}" Opacity=".42" RenderingBias="Performance"/>
+                    </Border.Effect>
+                </Border>
+
+                <Expander x:Name="expander" Background="Transparent"
+                              Header="Điều hướng" FontFamily="Yu Gothic Light"
+                              >
+                    <ScrollViewer
+                         HorizontalAlignment="Stretch"
+              HorizontalScrollBarVisibility="Auto"
+              VerticalScrollBarVisibility="Disabled"
+              CanContentScroll="True"
+                
+                Style="{StaticResource for_scrollviewer}"
+              PanningMode="HorizontalOnly"
+              SnapsToDevicePixels="True"
+                PreviewMouseWheel="TS_PreviewMouseWheel"
+                          Background="Transparent">
+                        <StackPanel Orientation="Horizontal" 
+                            Background="Transparent"
+                            >
+                            <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    BorderBrush="Transparent"
+                            materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="#CCFFA9D4"
+                            Click="btnQLNV_Click"
+                                    MouseDoubleClick="Button_MouseDoubleClick"
+                    Width="220" Height="80" Padding="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Border CornerRadius="10" Height="45" Width="50"
+                            Background="#B2FFCFF0" Grid.RowSpan="2">
+                                        <Image Height="35" Source="/UngdungHRM;component/icon/icons8-edit-user-64.png"/>
+                                    </Border>
+
+                                    <TextBlock Text="Quản lý người dùng"
+                               Grid.Column="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontWeight="Normal" FontFamily="Leelawadee"/>
+                                    <TextBlock Text="User Management"
+                               Grid.Column="1"
+                                   Grid.Row="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontFamily="Segoe UI Light" FontWeight="Normal"/>
+                                </Grid>
+                            </Button>
+
+
+                            <Button Margin="15 0 0 0" Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    BorderBrush="Transparent"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="#CC83DBF3"
+                                Click="btnVitrivieclam_Click"
+                                    MouseDoubleClick="Button_MouseDoubleClick"
+                    Width="220" Height="80" Padding="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Border CornerRadius="10" Height="45" Width="50"
+                            Background="#B2CFE5FF" Grid.RowSpan="2">
+                                        <Image Height="35" Source="/UngdungHRM;component/icon/icons8-open-opportunity-64.png"/>
+                                    </Border>
+
+                                    <TextBlock Text="Quản lý vị trí làm việc"
+                               Grid.Column="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontWeight="Normal" FontFamily="Leelawadee"/>
+                                    <TextBlock Text="Jobs"
+                               Grid.Column="1"
+                                   Grid.Row="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontFamily="Segoe UI Light" FontWeight="Normal"/>
+                                </Grid>
+                            </Button>
+
+                            <Button Margin="15 0 0 0" Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    BorderBrush="Transparent"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="#CCF9A8A7"
+                                    Click="btnThongtinCoquan_Click"
+                                    MouseDoubleClick="Button_MouseDoubleClick"
+                    Width="220" Height="80" Padding="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Border CornerRadius="10" Height="45" Width="50"
+                            Background="#99FFFBFC" Grid.RowSpan="2">
+                                        <Image Height="35" Source="/UngdungHRM;component/icon/icons8_organization_chart_people_60px.png"/>
+                                    </Border>
+
+                                    <TextBlock Text="Thông tin về cơ quan"
+                               Grid.Column="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontWeight="Normal" FontFamily="Leelawadee"/>
+                                    <TextBlock Text="Organization"
+                               Grid.Column="1"
+                                   Grid.Row="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontFamily="Segoe UI Light" FontWeight="Normal"/>
+                                </Grid>
+                            </Button>
+
+                            <Button Margin="15 0 0 0" Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    BorderBrush="Transparent"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="#CCD6A9FE"
+                                    Click="btnBangCap_Click"
+                                    MouseDoubleClick="Button_MouseDoubleClick"
+                    Width="220" Height="80" Padding="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Border CornerRadius="10" Height="45" Width="50"
+                            Background="#72FFFFFF" Grid.RowSpan="2">
+                                        <Image Height="35" Source="/UngdungHRM;component/icon/icons8-contract-64.png"/>
+                                    </Border>
+
+                                    <TextBlock Text="Trình dộ chuyên môn"
+                               Grid.Column="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontWeight="Normal" FontFamily="Leelawadee"/>
+                                    <TextBlock Text="Qualification"
+                               Grid.Column="1"
+                                   Grid.Row="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontFamily="Segoe UI Light" FontWeight="Normal"/>
+                                </Grid>
+                            </Button>
+
+                            <Button Margin="15 0 0 0" Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    BorderBrush="Transparent"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="#CC83DBF3"
+                                    Click="btnQuocGia_Click"
+                                    MouseDoubleClick="Button_MouseDoubleClick"
+                    Width="220" Height="80" Padding="0">
+                                <Grid  Width="190">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Border CornerRadius="10" Height="45" Width="50"
+                            Background="#B2CFE5FF" Grid.RowSpan="2">
+                                        <Image Height="35" Source="/UngdungHRM;component/icon/icons8_flag_filled_60px.png"/>
+                                    </Border>
+
+                                    <TextBlock Text="Quốc gia          "
+                               Grid.Column="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontWeight="Normal" FontFamily="Leelawadee"/>
+                                    <TextBlock Text="Nationalities"
+                               Grid.Column="1"
+                                   Grid.Row="1"
+                               Foreground="White"
+                               Margin="5 0 0 0"
+                                   VerticalAlignment="Center" FontFamily="Segoe UI Light" FontWeight="Normal"/>
+                                </Grid>
+                            </Button>
+                        </StackPanel>
+                    </ScrollViewer>
+
+                </Expander>
+
+
+                <Grid Margin="0 10 0 0" Grid.Row="1"
+                      x:Name="controls">
+                </Grid>
+
+                <Border x:Name="Mess" Grid.Row="1"
+                        Height="40"
+                        Margin="0 0 10 10"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Background="#CC0AFF9B"
+                        Padding="20 10"
+                        Opacity="0"
+                        CornerRadius="5">
+                    <TextBlock x:Name="txtMessage" Text="Lưu thành công"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontFamily="Noto Sans"
+                               Foreground="Green"/>
+                </Border>
+            </Grid>
+        </Border>
+    </materialDesign:TransitioningContent>
+</UserControl>

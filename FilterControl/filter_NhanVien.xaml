@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="UngdungHRM.FilterControl.filter_NhanVien"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UngdungHRM.FilterControl"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" Width="193">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListBox Style="{StaticResource MaterialDesignFilterChipAccentOutlineListBox}" Foreground="#DDFF0000"
+                 Margin="0 0 0 5"
+                 HorizontalAlignment="Left">
+            <ListBoxItem x:Name="lsItemMaNv" IsSelected="True">
+                Theo mã nhân viên
+            </ListBoxItem>
+
+            <ListBoxItem x:Name="lsItemTenNv"
+                         >
+                Theo tên nhân viên
+            </ListBoxItem>
+        </ListBox>
+
+
+        <StackPanel Grid.Row="1" Margin="0 10 0 0">
+            <TextBlock Text="Theo tên công việc"
+                   Grid.Row="1" 
+                   Margin="5 10 0 0" FontFamily="Yu Gothic"/>
+            <ComboBox Margin="5 0 15 0"
+                         x:Name="cbChucVu"
+                            DisplayMemberPath="Name"
+                      ItemsSource="{Binding}"
+                      SelectionChanged="cbChucVu_SelectionChanged"
+                        SelectedValuePath="Name"
+                         SelectedValue="{Binding Name}"
+                         Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                         />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="0 10 0 0">
+            <TextBlock Text="Theo trạng thái"
+                   
+                   Margin="5 0 0 0" FontFamily="Yu Gothic"/>
+            <ComboBox
+            Grid.Row="2" Margin="5 0 15 0"
+                         x:Name="cbTinhTrang"
+                            DisplayMemberPath="Name"
+                        SelectedValuePath="Name"
+                         SelectedValue="{Binding Level}"
+                SelectionChanged="cbChucVu_SelectionChanged"
+                         Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}"
+                         />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4">
+            <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                 Margin="5 10 15 0"
+                 materialDesign:HintAssist.Hint="Tìm kiếm"
+                 Background="White" 
+                     TextChanged="TextBox_TextChanged"
+                     x:Name="txtSearchInput">
+
+            </TextBox>
+
+            <Button Style="{StaticResource MaterialDesignOutlinedButton}"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 15 0"
+                    Height="15" Padding="15 0"
+                    x:Name="btnXoa"
+                    Visibility="Collapsed"
+                    Click="btnXoa_Click">
+                <materialDesign:PackIcon Kind="Close" Foreground="LightGray"/>
+            </Button>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

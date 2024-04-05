@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:UngdungHRM.Styles">
+    <SolidColorBrush x:Key="textHome">#FF8D8A8A</SolidColorBrush>
+    <SolidColorBrush x:Key="btnHome">#F28C38</SolidColorBrush>
+</ResourceDictionary>
